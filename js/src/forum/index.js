@@ -1,3 +1,4 @@
+import './global.css'
 import IndexPage from "flarum/common/components/IndexPage";
 import LinkButton from "flarum/common/components/LinkButton";
 import { extend } from "flarum/common/extend";

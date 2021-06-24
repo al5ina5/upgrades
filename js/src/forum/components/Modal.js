@@ -1,4 +1,3 @@
-import '../global.css'
 import Modal from "flarum/components/Modal";
 import { Toggle } from "./Pay";
 
