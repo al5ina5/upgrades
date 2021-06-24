@@ -1,0 +1,39 @@
+{
+    "name": "fantomdigital/upgrades",
+    "description": "Add a level/experience bar to your flarum Forum.",
+    "keywords": [
+        "extension",
+        "flarum",
+        "experience",
+        "level",
+        "xp"
+    ],
+    "type": "flarum-extension",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sebastian Alsina",
+            "email": "cyber@fantom.digital",
+            "homepage": "https://sebastianslaina.com/"
+        }
+    ],
+    "require": {
+        "flarum/core": "^1.0.2"
+    },
+    "extra": {
+        "flarum-extension": {
+            "title": "Upgrades",
+            "category": "feature",
+            "icon": {
+                "name": "fas fa-percent",
+                "backgroundColor": "#0072e3",
+                "color": "#fff"
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "FantomDigital\\Upgrades\\": "src/"
+        }
+    }
+}

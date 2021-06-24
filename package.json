@@ -1,0 +1,9 @@
+{
+    "scripts": {
+        "install": "cd js && yarn",
+        "dev": "concurrently \"cd ../../ && watch 'php flarum cache:clear' . --wait 2\" \"cd js && yarn dev\""
+    },
+    "dependencies": {
+        "concurrently": "^6.2.0"
+    }
+}
