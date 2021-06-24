@@ -1,8 +1,6 @@
+import '../global.css'
 import Modal from "flarum/components/Modal";
 import { Toggle } from "./Pay";
-
-
-
 
 export default class CustomModal extends Modal {
     static isDismissible = true;

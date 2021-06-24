@@ -1,4 +1,4 @@
-import "../global.css";
+import '../global.css'
 import { withHooks, useState } from "mithril-hooks";
 import { ethers, utils } from "ethers";
 import axios from "axios";
