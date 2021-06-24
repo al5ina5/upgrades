@@ -50,7 +50,13 @@ module.exports = function (options = {}) {
             rules: [
                 {
                     test: /\.(sass|less|css)$/,
-                    loaders: ["style-loader", "css-loader", "postcss-loader"],
+                    use: ["style-loader", {
+                        loader: 'css-loader',
+                        // options: {
+                        //     importLoaders: 1,
+                        //     modules: true
+                        // }
+                    }, "postcss-loader"],
                 },
                 {
                     // Matches .js, .jsx, .ts, .tsx
@@ -96,6 +102,10 @@ module.exports = function (options = {}) {
             ],
         },
 
+        watchOptions: {
+            ignored: 'node_modules',
+        },
+
         output: {
             path: path.resolve(process.cwd(), "dist"),
             library: "module.exports",
@@ -121,7 +131,7 @@ module.exports = function (options = {}) {
                         externals["@" + extension] =
                             externals["@" + extension + "/forum"] =
                             externals["@" + extension + "/admin"] =
-                                "flarum.extensions['" + extension + "']";
+                            "flarum.extensions['" + extension + "']";
                     }
                 }
 

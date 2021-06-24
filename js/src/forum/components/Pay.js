@@ -1,3 +1,4 @@
+import "../global.css";
 import { withHooks, useState } from "mithril-hooks";
 import { ethers, utils } from "ethers";
 import axios from "axios";
@@ -7,9 +8,9 @@ export const Toggle = withHooks(() => {
     const user = app.session.user;
 
     const [status, setStatus] = useState("idle");
-    const [complete, setComplete] = useState(null);
 
     const sendPayment = async (value) => {
+        setStatus('idle')
         try {
             await window.ethereum.enable();
             const provider = await new ethers.providers.Web3Provider(
@@ -26,7 +27,7 @@ export const Toggle = withHooks(() => {
             let sendPromise = await provider
                 .send("eth_sendTransaction", txs)
                 .then(async (tx) => {
-                    setComplete(tx);
+                    setStatus('complete');
                     m.redraw();
                     await axios.post(
                         "https://discord.com/api/webhooks/857133379665395713/D1ndh2SMKkXe4cIVfD1nFBS56Rc8a0b0fv7VQEIbAJ7SQqnqrusEuFt1zZAAaf7CgWFY",
@@ -37,6 +38,7 @@ export const Toggle = withHooks(() => {
                 });
         } catch (error) {
             setStatus("error");
+            m.redraw();
             console.log(error);
         }
     };
@@ -44,10 +46,7 @@ export const Toggle = withHooks(() => {
     return (
         <>
             <div className="p-6 space-y-4 relative">
-                {/* {JSON.stringify(user)} */}
-                {/* {app.session.user ? "yes" : "no"} */}
-
-                {complete && (
+                {status === 'complete' && (
                     <div className="absolute inset-0 z-10 bg-white flex items-center justify-center">
                         <div className="space-y-4 p-12 max-w-lg mx-auto">
                             <img

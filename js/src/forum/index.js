@@ -1,4 +1,4 @@
-import "./global.css";
+import './global.css'
 import IndexPage from "flarum/common/components/IndexPage";
 import LinkButton from "flarum/common/components/LinkButton";
 import { extend } from "flarum/common/extend";
@@ -6,24 +6,25 @@ import app from "flarum/forum/app";
 import Modal from "./components/Modal";
 import User from "flarum/models/User";
 
-app.initializers.add("reflar-level-ranks", (app) => {
+app.initializers.add("fantomdigital/upgrades", (app) => {
     extend(IndexPage.prototype, "navItems", (items) => {
         const user = app.session.user;
+
+        console.log(user)
 
         if (!user) return;
 
         items.add(
-            "fof-user-directory",
+            "upgrade",
             LinkButton.component(
                 {
-                    // href: "/",
                     force: false,
                     onclick: () => app.modal.show(Modal),
-                    icon: "far fa-address-book",
+                    icon: "fas fa-certificate",
                 },
                 "Upgrade"
             ),
-            85
+            0
         );
     });
 });

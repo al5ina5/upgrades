@@ -9,6 +9,7 @@
         "mithril": "^2.0.4",
         "mithril-hooks": "^0.7.1",
         "postcss": "^8.3.5",
+        "postcss-import": "^14.0.2",
         "postcss-loader": "4.2.0",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",

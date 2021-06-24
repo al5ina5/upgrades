@@ -1,10 +1,11 @@
 import Modal from "flarum/components/Modal";
 import { Toggle } from "./Pay";
 
-export default class BadgeModal extends Modal {
-    oninit(vnode) {
-        super.oninit(vnode);
-    }
+
+
+
+export default class CustomModal extends Modal {
+    static isDismissible = true;
 
     className() {
         return "Modal--medium";
