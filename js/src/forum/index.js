@@ -19,7 +19,10 @@ app.initializers.add("fantomdigital/upgrades", (app) => {
             LinkButton.component(
                 {
                     force: false,
-                    onclick: () => app.modal.show(Modal),
+                    onclick: (e) => {
+                        e.preventDefault()
+                        app.modal.show(Modal)
+                    },
                     icon: "fas fa-certificate",
                 },
                 "Upgrade"
